@@ -1,0 +1,45 @@
+﻿<Window x:Class="digitally_signed.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:digitally_signed"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        materialDesign:ThemeAssist.Theme="Dark"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="MainWindow" Height="550" Width="800">
+    <Grid>
+        <StackPanel Margin="10">
+            <TextBlock Margin="0 0 0 15" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" Text="Введите сообщение, для которого построить ЭЦП:"/>
+            <materialDesign:Card Padding="10" Margin="0 0 0 30">
+                <TextBox Name="input" FontSize="20"/>
+            </materialDesign:Card>
+            <TextBlock VerticalAlignment="Center" Margin="0 0 0 15" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" Text="Ваш закрытый ключ:"/>
+            <materialDesign:Card Padding="10" Margin="0 0 0 30">
+                <TextBox Name="key" FontSize="20" BorderBrush="Transparent" IsReadOnly="True" materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"/>
+            </materialDesign:Card>
+            <TextBlock VerticalAlignment="Center" Margin="0 0 0 15" Style="{DynamicResource MaterialDesignHeadline4TextBlock}" Text="Ваш закрытый ключ:"/>
+            <materialDesign:Card Padding="10" Margin="0 0 0 30">
+                <TextBox Name="output" Height="300" FontSize="20" BorderBrush="Transparent" IsReadOnly="True" materialDesign:TextFieldAssist.DecorationVisibility="Collapsed"/>
+            </materialDesign:Card>
+        </StackPanel>
+        <Grid Height="100" VerticalAlignment="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Background="Black" Opacity="0.2" Grid.ColumnSpan="2"/>
+            <Button Height="50" Margin="10" Click="Encrypt_Click" Content="Сгенерировать и зашифровать хэш"/>
+            <Button Click="Decrypt_Click" Height="50" Margin="10" Grid.Column="1" Style="{DynamicResource MaterialDesignRaisedAccentButton}" Content="Проверить ЭЦП"/>
+        </Grid>
+    </Grid>
+
+
+</Window>
